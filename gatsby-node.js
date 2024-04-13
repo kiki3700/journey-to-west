@@ -3,23 +3,66 @@
  *
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
  */
+const path = require("path")
+const { createFilePath } = require("gatsby-source-filesystem")
+const blogTemplate = path.resolve("./src/templates/blog_template.js")
+const wikiTemplate = path.resolve("./src/templates/wiki_template.js")
 
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
-
-// Define the template for blog post
-const blogPost = path.resolve(`./src/templates/blog-post.js`)
-
-/**
- * @type {import('gatsby').GatsbyNode['createPages']}
- */
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
+  // Blog posts query
+  await createBlogPost(graphql, actions, reporter)
+  await createWikiPage(graphql, actions, reporter)
+}
 
-  // Get all markdown blog posts sorted by date
-  const result = await graphql(`
+async function createWikiPage(graphql, actions, reporter) {
+  const { createPage } = actions
+  const wikiResult = await graphql(`
     {
-      allMarkdownRemark(sort: { frontmatter: { date: ASC } }, limit: 1000) {
+      allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/wiki/" } }
+        sort: { frontmatter: { date: ASC } }
+      ) {
+        nodes {
+          id
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  `)
+  if (wikiResult.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your wiki page`,
+      wikiResult.errors
+    )
+    return
+  } // Wiki entries quer
+  pages = wikiResult.data.allMarkdownRemark.nodes
+  if (pages.length > 0) {
+    pages.forEach(page => {
+      let componentPath = wikiTemplate
+      slug = "/wiki" + page.fields.slug
+
+      createPage({
+        path: slug,
+        component: componentPath,
+        context: {
+          id: page.id,
+        },
+      })
+    })
+  }
+}
+async function createBlogPost(graphql, actions, reporter) {
+  const { createPage } = actions
+  const blogResult = await graphql(`
+    {
+      allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/content/blog/" } }
+        sort: { frontmatter: { date: ASC } }
+      ) {
         nodes {
           id
           fields {
@@ -30,28 +73,25 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
   `)
 
-  if (result.errors) {
+  if (blogResult.errors) {
     reporter.panicOnBuild(
       `There was an error loading your blog posts`,
       result.errors
     )
     return
-  }
-
-  const posts = result.data.allMarkdownRemark.nodes
-
-  // Create blog posts pages
-  // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
-  // `context` is available in the template as a prop and as a variable in GraphQL
-
+  } // Wiki entries query
+  const posts = blogResult.data.allMarkdownRemark.nodes
+  // Create pages for blog posts and wiki entries based on their paths
   if (posts.length > 0) {
     posts.forEach((post, index) => {
       const previousPostId = index === 0 ? null : posts[index - 1].id
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
-
+      let componentPath = blogTemplate
+      let slug = post.fields.slug
+      console.log(slug)
       createPage({
-        path: post.fields.slug,
-        component: blogPost,
+        path: slug,
+        component: componentPath,
         context: {
           id: post.id,
           previousPostId,
