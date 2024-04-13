@@ -52,7 +52,7 @@
   --fontSize-5: 2.074rem;
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
-  --color-primary: #005b99;
+  --color-primary: black;
   --color-text: #2e353f;
   --color-text-light: #4f5969;
   --color-heading: #1a202c;
@@ -229,11 +229,14 @@ table thead tr th {
 
 a {
   color: var(--color-primary);
+  text-decoration: none; /* 링크 밑줄 제거 */
+  font-weight: bold;
 }
 
 a:hover,
 a:focus {
   text-decoration: none;
+  color: grey;
 }
 
 /* Custom classes */
@@ -315,6 +318,22 @@ a:focus {
 
 .gatsby-highlight {
   margin-bottom: var(--spacing-8);
+}
+/* Nav.css */
+nav {
+  text-align: center; /* 모든 네비게이션 항목을 중앙으로 정렬 */
+  margin-bottom: 20px; /* 네비게이션과 컨텐츠 사이에 여백 추가 */
+}
+
+.nav-list {
+  list-style: none; /* 목록 앞의 점 제거 */
+  display: flex; /* 리스트 아이템을 수평으로 정렬 */
+  justify-content: center; /* 항목들을 중앙으로 정렬 */
+  gap: var(--spacing-24);
+}
+.nav-list li a {
+  font-size: var(--fontSize-2);
+  padding: var(--spacing-2);
 }
 
 /* Media queries */

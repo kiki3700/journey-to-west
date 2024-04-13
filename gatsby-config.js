@@ -9,19 +9,23 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `journey to west`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `noah lee`,
+      summary: `skeleton`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
-    social: {
-      twitter: `kylemathews`,
-    },
   },
   plugins: [
     `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/wiki`,
+        name: `wiki`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -36,6 +40,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    "gatsby-plugin-mdx",
     {
       resolve: `gatsby-transformer-remark`,
       options: {
