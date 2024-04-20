@@ -5,6 +5,7 @@
  */
 const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
+const { link } = require("fs")
 const blogTemplate = path.resolve("./src/templates/blog_template.js")
 const wikiTemplate = path.resolve("./src/templates/wiki_template.js")
 
@@ -28,6 +29,9 @@ async function createWikiPage(graphql, actions, reporter) {
           fields {
             slug
           }
+          internal {
+            content
+          }
         }
       }
     }
@@ -39,7 +43,50 @@ async function createWikiPage(graphql, actions, reporter) {
     )
     return
   } // Wiki entries quer
+  const slug_dict = wikiResult.data.allMarkdownRemark.nodes.reduce(
+    (acc, node) => {
+      // console.log(node.fields.slug)
+      acc[node.fields.slug] = node
+      return acc
+    },
+    {}
+  )
   pages = wikiResult.data.allMarkdownRemark.nodes
+
+  let componentPath = wikiTemplate
+  function dfs(node, baseUrl, visited = new Set()) {
+    if (visited.has(node)) return
+    const newBaseUrl = baseUrl.replace(/\/$/, "") + node.fields.slug
+    console.log(newBaseUrl)
+    createPage({
+      path: newBaseUrl,
+      component: componentPath,
+      context: {
+        id: node.id,
+      },
+    })
+    links = extractLinks(node.internal.content)
+    links.forEach(slug => {
+      const normalizedSlug = `/${slug.replace(/^\/|\/$/g, "")}/`
+      const childNode = slug_dict[normalizedSlug]
+      if (childNode) {
+        dfs(childNode, newBaseUrl, visited)
+      }
+    })
+  }
+  function extractLinks(content) {
+    const linkPattern = /\[\[([^\]]+)\]\]/g
+    let match
+    const links = []
+
+    while ((match = linkPattern.exec(content)) !== null) {
+      links.push(match[1])
+    }
+
+    return links
+  }
+  dfs(slug_dict["/"], "/wiki")
+
   if (pages.length > 0) {
     pages.forEach(page => {
       let componentPath = wikiTemplate
@@ -88,7 +135,6 @@ async function createBlogPost(graphql, actions, reporter) {
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
       let componentPath = blogTemplate
       let slug = post.fields.slug
-      console.log(slug)
       createPage({
         path: slug,
         component: componentPath,

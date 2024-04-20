@@ -2,11 +2,14 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 
-const WikiPageTemplate = ({ data }) => {
+const WikiPageTemplate = ({ data, location }) => {
   const { markdownRemark } = data
-  const siteTitle = data.stieMetadata.title
+
+  console.log(location)
+  // let location = data.markdownRemark.frontmatter.slug
+  const siteTitle = data.site.siteMetadata.title
   return (
-    <Layout title={siteTitle}>
+    <Layout location={location} title={siteTitle}>
       <h1>{markdownRemark.frontmatter.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
     </Layout>
@@ -26,6 +29,7 @@ export const query = graphql`
       html
       frontmatter {
         title
+        slug
       }
     }
   }
