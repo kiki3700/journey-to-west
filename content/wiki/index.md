@@ -1,9 +1,7 @@
 ---
 create_date: "2023-01-01"
-title: wikiindex
+title: /
 slug: "index"
 ---
 
-- hi
-  - [[python]]
-  - [[java]]
+- [[language]]

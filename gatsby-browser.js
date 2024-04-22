@@ -14,11 +14,11 @@ exports.onRouteUpdate = () => {
   if (content) {
     content.innerHTML = content.innerHTML.replace(
       /\[\[(.+?)\]\]\{(.+?)\}/g,
-      '<a href="./$1">$2</a>'
+      '<a href="/wiki/$1">$2</a>'
     )
     content.innerHTML = content.innerHTML.replace(
       /\[\[(.+?)\]\]/g,
-      '<a href="./$1">$1</a>'
+      '<a href="/wiki/$1">$1</a>'
     )
   }
 }

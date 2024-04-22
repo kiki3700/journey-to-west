@@ -5,7 +5,7 @@
  */
 const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
-const { link } = require("fs")
+const { get } = require("https")
 const blogTemplate = path.resolve("./src/templates/blog_template.js")
 const wikiTemplate = path.resolve("./src/templates/wiki_template.js")
 
@@ -45,7 +45,6 @@ async function createWikiPage(graphql, actions, reporter) {
   } // Wiki entries quer
   const slug_dict = wikiResult.data.allMarkdownRemark.nodes.reduce(
     (acc, node) => {
-      // console.log(node.fields.slug)
       acc[node.fields.slug] = node
       return acc
     },
@@ -54,53 +53,33 @@ async function createWikiPage(graphql, actions, reporter) {
   pages = wikiResult.data.allMarkdownRemark.nodes
 
   let componentPath = wikiTemplate
-  function dfs(node, baseUrl, visited = new Set()) {
+  function dfs(node, parent = null, visited = new Set()) {
     if (visited.has(node)) return
-    const newBaseUrl = baseUrl.replace(/\/$/, "") + node.fields.slug
-    console.log(newBaseUrl)
-    createPage({
-      path: newBaseUrl,
-      component: componentPath,
-      context: {
-        id: node.id,
-      },
-    })
+    visited.add(node)
     links = extractLinks(node.internal.content)
+    childrenIds = []
     links.forEach(slug => {
-      const normalizedSlug = `/${slug.replace(/^\/|\/$/g, "")}/`
-      const childNode = slug_dict[normalizedSlug]
+      const childNode = slug_dict[slug]
       if (childNode) {
-        dfs(childNode, newBaseUrl, visited)
+        dfs(childNode, node, visited)
+        childrenIds.push(childNode.id)
       }
     })
-  }
-  function extractLinks(content) {
-    const linkPattern = /\[\[([^\]]+)\]\]/g
-    let match
-    const links = []
-
-    while ((match = linkPattern.exec(content)) !== null) {
-      links.push(match[1])
-    }
-
-    return links
-  }
-  dfs(slug_dict["/"], "/wiki")
-
-  if (pages.length > 0) {
-    pages.forEach(page => {
-      let componentPath = wikiTemplate
-      slug = "/wiki" + page.fields.slug
-
+    parentId = parent ? parent.id : null
+    if (node.fields.slug != "/wiki/") {
       createPage({
-        path: slug,
+        path: node.fields.slug,
         component: componentPath,
         context: {
-          id: page.id,
+          id: node.id,
+          parentId: parentId,
+          childrenIds: childrenIds,
         },
       })
-    })
+    }
   }
+
+  dfs(slug_dict["/wiki/"])
 }
 async function createBlogPost(graphql, actions, reporter) {
   const { createPage } = actions
@@ -155,14 +134,37 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    value = createFilePath({ node, getNode })
+    // 파일의 절대 경로를 가져옴
+    const fileNode = getNode(node.parent)
+    const filePath = fileNode.absolutePath
+    // 'content/blog' 또는 'content/wiki'에 따라 slug를 조정
 
+    if (filePath.includes("/content/blog/")) {
+      value = "/blog" + value
+    } else {
+      value = `/wiki${value}`
+      createWikiNode(node, actions, getNode)
+    }
     createNodeField({
-      name: `slug`,
+      name: "slug",
       node,
       value,
     })
   }
+}
+
+function createWikiNode(node, actions, getNode) {
+  const { createNodeField } = actions
+  const links = extractLinks(node.internal.content)
+  console.log(links)
+  createNodeField({
+    name: `child`,
+    node: node,
+    value: links,
+  })
+
+  console.log(node)
 }
 
 /**
@@ -208,4 +210,15 @@ exports.createSchemaCustomization = ({ actions }) => {
       slug: String
     }
   `)
+}
+function extractLinks(content) {
+  const linkPattern = /\[\[([^\]]+)\]\]/g
+  let match
+  const links = []
+
+  while ((match = linkPattern.exec(content)) !== null) {
+    links.push(`/wiki/${match[1]}/`)
+  }
+
+  return links
 }

@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../../components/layout"
@@ -7,8 +7,7 @@ import Seo from "../../components/seo"
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
-  console.log(posts)
-
+  // 선택된 카테고리나 태그로 게시물 필터링
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
@@ -85,6 +84,7 @@ export const pageQuery = graphql`
           title
           date
           description
+          category
         }
         fields {
           slug
