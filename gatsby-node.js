@@ -10,8 +10,13 @@ const blogTemplate = path.resolve("./src/templates/blog_template.js")
 const wikiTemplate = path.resolve("./src/templates/wiki_template.js")
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions
-  // Blog posts query
+  const { createRedirect } = actions
+  createRedirect({
+    fromPath: "/",
+    toPath: "/blog",
+    isPermanent: true,
+    redirectInBrowser: true,
+  })
   await createBlogPost(graphql, actions, reporter)
   await createWikiPage(graphql, actions, reporter)
 }
@@ -43,7 +48,7 @@ async function createWikiPage(graphql, actions, reporter) {
     )
     return
   } // Wiki entries quer
-  const slug_dict = wikiResult.data.allMarkdownRemark.nodes.reduce(
+  const slugMap = wikiResult.data.allMarkdownRemark.nodes.reduce(
     (acc, node) => {
       acc[node.fields.slug] = node
       return acc
@@ -53,15 +58,15 @@ async function createWikiPage(graphql, actions, reporter) {
   pages = wikiResult.data.allMarkdownRemark.nodes
 
   let componentPath = wikiTemplate
-  function dfs(node, parent = null, visited = new Set()) {
+  function travelAndCreateWikiPages(node, parent = null, visited = new Set()) {
     if (visited.has(node)) return
     visited.add(node)
     links = extractLinks(node.internal.content)
     childrenIds = []
     links.forEach(slug => {
-      const childNode = slug_dict[slug]
+      const childNode = slugMap[slug]
       if (childNode) {
-        dfs(childNode, node, visited)
+        travelAndCreateWikiPages(childNode, node, visited)
         childrenIds.push(childNode.id)
       }
     })
@@ -79,7 +84,7 @@ async function createWikiPage(graphql, actions, reporter) {
     }
   }
 
-  dfs(slug_dict["/wiki/"])
+  travelAndCreateWikiPages(slugMap["/wiki/"])
 }
 async function createBlogPost(graphql, actions, reporter) {
   const { createPage } = actions
@@ -102,7 +107,7 @@ async function createBlogPost(graphql, actions, reporter) {
   if (blogResult.errors) {
     reporter.panicOnBuild(
       `There was an error loading your blog posts`,
-      result.errors
+      blogResult.errors
     )
     return
   } // Wiki entries query
@@ -139,32 +144,36 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const fileNode = getNode(node.parent)
     const filePath = fileNode.absolutePath
     // 'content/blog' 또는 'content/wiki'에 따라 slug를 조정
-
-    if (filePath.includes("/content/blog/")) {
-      value = "/blog" + value
-    } else {
-      value = `/wiki${value}`
-      createWikiNode(node, actions, getNode)
-    }
+    value = adjustSlugForContent(filePath, value)
     createNodeField({
       name: "slug",
       node,
       value,
     })
+    if (filePath.includes("/content/wiki/")) {
+      value = `/wiki${value}`
+      createWikiNode(node, actions, getNode)
+    }
   }
+}
+function adjustSlugForContent(filePath, slugValue) {
+  if (filePath.includes("/content/blog/")) {
+    return `/blog${slugValue}`
+  }
+  if (filePath.includes("/content/wiki/")) {
+    return `/wiki${slugValue}`
+  }
+  return slugValue
 }
 
 function createWikiNode(node, actions, getNode) {
   const { createNodeField } = actions
   const links = extractLinks(node.internal.content)
-  console.log(links)
   createNodeField({
     name: `child`,
     node: node,
     value: links,
   })
-
-  console.log(node)
 }
 
 /**

@@ -10,9 +10,15 @@ const WikiPageTemplate = ({ data, pageContext, location }) => {
   // let location = data.markdownRemark.frontmatter.slug
   const siteTitle = data.site.siteMetadata.title
   const parentTitle = parent.frontmatter.title
+  // Determine if the parent page is the index page
+  const isIndexPage = parentSlug === "/wiki/"
+  console.log(isIndexPage)
+
   return (
     <Layout location={location} title={siteTitle}>
-      <Link to={parentSlug}>상위 문서 : {parent.frontmatter.slug} </Link>
+      {/* todo 상위 문서가 index일때 상위 문서 가리기 */}
+      <Link to="/wiki/">root: / </Link>
+      {!isIndexPage && <Link to={parentSlug}>상위 문서: {parentTitle}</Link>}
       <h1>{markdownRemark.frontmatter.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
     </Layout>
