@@ -13,7 +13,7 @@ module.exports = {
     author: {
       name: `noah`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `웹로그.`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
     social: {
       github: "kiki3700",

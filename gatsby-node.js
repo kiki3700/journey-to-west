@@ -10,13 +10,6 @@ const blogTemplate = path.resolve("./src/templates/blog_template.js")
 const wikiTemplate = path.resolve("./src/templates/wiki_template.js")
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createRedirect } = actions
-  createRedirect({
-    fromPath: "/",
-    toPath: "/blog",
-    isPermanent: true,
-    redirectInBrowser: true,
-  })
   await createBlogPost(graphql, actions, reporter)
   await createWikiPage(graphql, actions, reporter)
 }
