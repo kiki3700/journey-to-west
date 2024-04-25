@@ -2,18 +2,13 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 
-const WikiPageTemplate = ({ data, pageContext, location }) => {
+const WikiPageTemplate = ({ data, location }) => {
   const markdownRemark = data.markdownRemark
   const parent = data.parent
-  console.log(pageContext)
   const parentSlug = data.parent.fields.slug
-  // let location = data.markdownRemark.frontmatter.slug
   const siteTitle = data.site.siteMetadata.title
   const parentTitle = parent.frontmatter.title
-  // Determine if the parent page is the index page
   const isIndexPage = parentSlug === "/wiki/"
-  console.log(isIndexPage)
-
   return (
     <Layout location={location} title={siteTitle}>
       {/* todo 상위 문서가 index일때 상위 문서 가리기 */}
