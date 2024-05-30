@@ -4,4 +4,4 @@ title: /
 slug: "index"
 ---
 
-- [[language]]
+- [[design-pattern]]
