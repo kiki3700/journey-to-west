@@ -1,5 +1,5 @@
 ---
-title: factory-metthod-pattern
+title: factory-method-pattern
 slug: "factory-method-pattern"
 ---
 ## 팩토리 
