@@ -7,4 +7,4 @@ slug: "design-pattern"
 - [[decorator-pattern]]
 - [[factory-method-pattern]]
 - [[abstract-factory-pattern]]
-
+- [[singleton-pattern]]
