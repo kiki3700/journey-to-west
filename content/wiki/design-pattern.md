@@ -8,3 +8,4 @@ slug: "design-pattern"
 - [[factory-method-pattern]]
 - [[abstract-factory-pattern]]
 - [[singleton-pattern]]
+- [[command-pattern]]
