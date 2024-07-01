@@ -10,3 +10,5 @@ slug: "design-pattern"
 - [[singleton-pattern]]
 - [[command-pattern]]
 - [[adapter-pattern]]
+- [[facade-pattern]]
+
