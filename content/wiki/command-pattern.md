@@ -1,5 +1,5 @@
 ---
-title: Command pattern
+title: command pattern
 slug: "command-patter"
 ---
 

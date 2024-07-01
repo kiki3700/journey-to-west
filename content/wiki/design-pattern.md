@@ -9,3 +9,4 @@ slug: "design-pattern"
 - [[abstract-factory-pattern]]
 - [[singleton-pattern]]
 - [[command-pattern]]
+- [[adapter-pattern]]
