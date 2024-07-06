@@ -5,8 +5,8 @@ slug: "numeric-type"
 ## Numeric types
 ### postgreSql Numeric Type
 * numeric 타입은 
-    * 2,4 8 바이트의 정수
-    *  2, 4, 8 바이트의 부동소숫점 숫자
+    * 2, 4 8 바이트의 정수
+    * 4, 8 바이트의 부동소숫점 숫자
     *  선택가능한 정밀도를 가진 소수점 수
     로 이뤄져있다.
 
