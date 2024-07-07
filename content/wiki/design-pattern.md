@@ -11,4 +11,4 @@ slug: "design-pattern"
 - [[command-pattern]]
 - [[adapter-pattern]]
 - [[facade-pattern]]
-
+- [[template-method-pattern]]
