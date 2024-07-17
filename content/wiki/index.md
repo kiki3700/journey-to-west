@@ -6,6 +6,5 @@ slug: "index"
 
 - [[design-pattern]]
 - [[language]]
-- [[frame-work]]
+- [[framework]]
 - [[data-base]]
-

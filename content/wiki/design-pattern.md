@@ -12,3 +12,4 @@ slug: "design-pattern"
 - [[adapter-pattern]]
 - [[facade-pattern]]
 - [[template-method-pattern]]
+
