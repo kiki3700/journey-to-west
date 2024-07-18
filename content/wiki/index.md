@@ -4,7 +4,7 @@ title: /
 slug: "index"
 ---
 
-- [[design-pattern]]
-- [[language]]
-- [[framework]]
-- [[data-base]]
+- [[Design-pattern]]
+- [[Language]]
+- [[Framework]]
+- [[Database]]

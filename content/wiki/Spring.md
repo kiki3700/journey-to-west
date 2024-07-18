@@ -1,5 +1,6 @@
 ---
 title: Spring
-slug: "Spring"
+slug: "spring"
 ---
+
 - [[Web-Development]]

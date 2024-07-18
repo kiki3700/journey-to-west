@@ -1,6 +1,6 @@
 ---
 create_date: "2023-01-01"
-title: "python"
+title: "Python"
 slug: "python"
 ---
 

@@ -1,7 +1,6 @@
--/--
+---
 title: Numeric Type
 slug: "numeric-type"
-
 ---
 
 ## Numeric types

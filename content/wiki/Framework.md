@@ -1,5 +1,5 @@
 ---
-title: framework
+title: Framework
 slug: "framework"
 ---
 

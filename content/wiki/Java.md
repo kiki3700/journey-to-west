@@ -1,7 +1,7 @@
 ---
 create_date: "2023-01-01"
-title: java
+title: Java
 slug: "java"
 ---
 
-- [[abstract-class]]
+- [[Abstract-class]]

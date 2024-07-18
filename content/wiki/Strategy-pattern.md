@@ -1,5 +1,5 @@
 ---
-title: strategy pattern
+title: Strategy Pattern
 slug: "strategy-pattern"
 ---
 

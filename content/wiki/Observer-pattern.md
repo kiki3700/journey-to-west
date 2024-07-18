@@ -1,5 +1,5 @@
 ---
-title: observer pattern
+title: Observer pattern
 slug: "observer-pattern"
 ---
 

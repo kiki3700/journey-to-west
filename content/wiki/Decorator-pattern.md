@@ -1,5 +1,5 @@
 ---
-title: decorator-pattern
+title: Decorator-pattern
 slug: "decorator-pattern"
 ---
 
