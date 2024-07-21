@@ -1,5 +1,5 @@
 ---
-title: Factory-method-pattern
+title: Factory method pattern
 slug: "factory-method-pattern"
 ---
 

@@ -13,3 +13,5 @@ slug: "design-pattern"
 - [[Adapter-pattern]]
 - [[Facade-pattern]]
 - [[Template-method-pattern]]
+- [[Iterator-pattern]]
+- [[Composite-pattern]]

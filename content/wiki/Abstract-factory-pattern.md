@@ -1,5 +1,5 @@
 ---
-title: Abstract-factory-pattern
+title: Abstract factory pattern
 slug: "abstract-factory-pattern"
 ---
 
