@@ -4,6 +4,7 @@ title: /
 slug: "index"
 ---
 
+- [[OOP]]
 - [[Design-pattern]]
 - [[Language]]
 - [[Framework]]
