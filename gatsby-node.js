@@ -43,7 +43,7 @@ async function createWikiPage(graphql, actions, reporter) {
   } // Wiki entries quer
   const slugMap = wikiResult.data.allMarkdownRemark.nodes.reduce(
     (acc, node) => {
-      acc[node.elds.slug] = node
+      acc[node.fields.slug] = node
       return acc
     },
     {}
