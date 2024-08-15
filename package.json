@@ -22,9 +22,12 @@
     "gatsby-source-filesystem": "^5.13.1",
     "gatsby-transformer-remark": "^6.13.1",
     "gatsby-transformer-sharp": "^5.13.1",
+    "katex": "^0.16.11",
     "prismjs": "^1.29.0",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "remark-html-katex": "^3.0.0",
+    "remark-math": "^3.0.1"
   },
   "devDependencies": {
     "prettier": "^2.8.8"
