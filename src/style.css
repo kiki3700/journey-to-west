@@ -348,6 +348,7 @@ nav {
     list-style-position: inside;
   }
 }
-ul {
+ul,
+ol {
   list-style-position: inside; /* 마커를 리스트 아이템 내부에 위치 */
 }
