@@ -6,3 +6,5 @@ slug: "java"
 
 - [[Abstract-class]]
 - [[Build]]
+- [[Compile-Vs-Interpreter]]
+- [[JavaExcution]]

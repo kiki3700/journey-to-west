@@ -1,6 +1,6 @@
 ---
-title: Build
-slug: "Build"
+title: Compile Vs Interpreter
+slug: "compile-vs-interpreter"
 ---
 
 ## 정의
