@@ -8,7 +8,7 @@ const AboutPage = ({ data, location }) => {
   const { html } = markdownRemark
   return (
     <Layout location={location} title={title}>
-      <h1>about</h1>
+      <h1>About</h1>
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   )
