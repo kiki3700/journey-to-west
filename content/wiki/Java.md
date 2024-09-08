@@ -8,3 +8,4 @@ slug: "java"
 - [[Build]]
 - [[Compile-Vs-Interpreter]]
 - [[JavaExcution]]
+- [[JavaRunTaimeDataArea]]
