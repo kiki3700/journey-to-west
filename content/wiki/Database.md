@@ -4,5 +4,5 @@ slug: "database"
 ---
 
 - [[Numeric-type]]
-- [[Index]]
+- [[DB-Index]]
 - [[Transaction]]

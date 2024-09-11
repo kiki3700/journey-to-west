@@ -1,5 +1,5 @@
 ---
-title: Index
+title: DB Index
 slug: "Index"
 ---
 
