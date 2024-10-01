@@ -4,3 +4,4 @@ slug: "ioc-di-container"
 ---
 
 - [[Bean]]
+- [[IocContainer]]
