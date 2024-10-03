@@ -59,6 +59,24 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              icon: false,
+            },
+          },
+          {
+            resolve: `gatsby-remark-toc`,
+            options: {
+              exclude: "Table of Contents",
+              className: "toc",
+              tight: true,
+              include: ["**/*.md"], // 포함할 파일 패턴
+              mdastUtilTocOptions: {
+                maxDepth: 3, // 최대 heading 레벨
+              },
+            },
+          },
+          {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 630,

@@ -352,3 +352,8 @@ ul,
 ol {
   list-style-position: inside; /* 마커를 리스트 아이템 내부에 위치 */
 }
+li p {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
