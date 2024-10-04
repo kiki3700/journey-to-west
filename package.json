@@ -20,6 +20,7 @@
     "gatsby-remark-images": "^7.13.1",
     "gatsby-remark-prismjs": "^7.13.1",
     "gatsby-remark-responsive-iframe": "^6.13.1",
+    "gatsby-remark-table-of-contents": "^2.0.0",
     "gatsby-remark-toc": "^1.2.0",
     "gatsby-source-filesystem": "^5.13.1",
     "gatsby-transformer-remark": "^6.13.1",
@@ -28,8 +29,13 @@
     "prismjs": "^1.29.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "rehype-react": "^8.0.0",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
     "remark-html-katex": "^3.0.0",
-    "remark-math": "^3.0.1"
+    "remark-math": "^3.0.1",
+    "remark-rehype": "^11.1.1",
+    "remark-toc": "^9.0.0"
   },
   "devDependencies": {
     "prettier": "^2.8.8"

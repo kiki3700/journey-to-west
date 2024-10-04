@@ -2,9 +2,12 @@ import React from "react"
 import "katex/dist/katex.css"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
+import Toc from "../components/toc"
 
 const WikiPageTemplate = ({ data, location }) => {
   const markdownRemark = data.markdownRemark
+  const toc = data.markdownRemark.tableOfContents
+  console.log(toc)
   const parent = data.parent
   const parentSlug = data.parent.fields.slug
   const siteTitle = data.site.siteMetadata.title
@@ -12,17 +15,16 @@ const WikiPageTemplate = ({ data, location }) => {
   const isIndexPage = parentSlug === "/wiki/"
   return (
     <Layout location={location} title={siteTitle}>
-      {/* todo 상위 문서가 index일때 상위 문서 가리기 */}
       <Link to="/wiki/">root: / </Link>
       {!isIndexPage && <Link to={parentSlug}>상위 문서: {parentTitle}</Link>}
       <h1>{markdownRemark.frontmatter.title}</h1>
+      <Toc toc={toc} />
       <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
     </Layout>
   )
 }
 
 export default WikiPageTemplate
-
 export const query = graphql`
   query WikiPostBySlug(
     $id: String!
@@ -36,8 +38,8 @@ export const query = graphql`
     }
     markdownRemark(id: { eq: $id }) {
       id
-      html
       tableOfContents
+      html
       frontmatter {
         title
         slug

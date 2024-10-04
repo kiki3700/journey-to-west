@@ -65,12 +65,11 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-remark-toc`,
+            resolve: "gatsby-remark-table-of-contents",
             options: {
-              exclude: "Table of Contents",
+              exclude: "목차",
               className: "toc",
-              tight: true,
-              include: ["**/*.md"], // 포함할 파일 패턴
+              tight: false,
               mdastUtilTocOptions: {
                 maxDepth: 3, // 최대 heading 레벨
               },

@@ -100,7 +100,6 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
-  margin-top: var(--spacing-12);
   margin-bottom: var(--spacing-6);
   line-height: var(--lineHeight-tight);
   letter-spacing: -0.025em;
@@ -320,7 +319,7 @@ a:focus {
   margin-bottom: var(--spacing-8);
 }
 /* Nav.css */
-nav {
+.nav-bar {
   text-align: center; /* 모든 네비게이션 항목을 중앙으로 정렬 */
   margin-bottom: 20px; /* 네비게이션과 컨텐츠 사이에 여백 추가 */
 }
@@ -356,4 +355,9 @@ li p {
   margin: 0;
   padding: 0;
   display: inline;
+}
+
+.toc-container {
+  margin-left: 25px;
+  margin-right: 25px;
 }
