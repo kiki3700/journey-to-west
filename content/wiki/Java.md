@@ -9,3 +9,4 @@ slug: "java"
 - [[Compile-Vs-Interpreter]]
 - [[JavaExcution]]
 - [[JavaRunTaimeDataArea]]
+- [[GarbageCollection]]
