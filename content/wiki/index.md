@@ -4,10 +4,10 @@ title: /
 slug: "index"
 ---
 
-- [[OOP]]
-- [[Design-pattern]]
-- [[Language]]
-- [[Framework]]
-- [[Database]]
-- [[Network]]
-- [[Security]]
+- [[oop]]{객체 지향}
+- [[design-pattern]]{디자인 패턴}
+- [[language]]{Language}
+- [[framework]]{Framework}
+- [[database]]{Database}
+- [[network]]{Network}
+- [[security]]{Security}

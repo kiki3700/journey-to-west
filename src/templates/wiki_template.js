@@ -38,7 +38,6 @@ export const query = graphql`
     }
     markdownRemark(id: { eq: $id }) {
       id
-      tableOfContents
       html
       frontmatter {
         title
