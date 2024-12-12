@@ -1,6 +1,6 @@
 ---
 title: item 1. 정적 팩토리 메소드
-slug:"effective-java-item-1"
+slug: "effective-java-item-1"
 ---
 * 정적 팩터리 메서드는 GOF 의 팩토리 메서드 패턴과는 다르다.
 * 정적 팩터리 메서드는 public 생성자를 사용하지 않고, 해당 클래스의 인스턴스를 반환하는 단순한 정적 메서드를 말한다.

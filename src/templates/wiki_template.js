@@ -18,7 +18,6 @@ const WikiPageTemplate = ({ data, location }) => {
       <Link to="/wiki/">root: / </Link>
       {!isIndexPage && <Link to={parentSlug}>상위 문서: {parentTitle}</Link>}
       <h1>{markdownRemark.frontmatter.title}</h1>
-      <Toc toc={toc} />
       <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
     </Layout>
   )
