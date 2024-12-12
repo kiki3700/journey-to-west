@@ -10,3 +10,4 @@ slug: "java"
 - [[java-execution]]{Java Execution}
 - [[jvm-runtime-data-area]]{JVM Runtime Data Area}
 - [[garbage-collection]]{Garbage Collection}
+- [[effective-java]]{Effective Java}
