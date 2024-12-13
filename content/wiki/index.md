@@ -5,7 +5,7 @@ slug: "index"
 ---
 
 - [[oop]]{객체 지향}
-- [[design-pattern]]{디자인 패턴}
+- [[design-patterns]]{디자인 패턴}
 - [[language]]{Language}
 - [[framework]]{Framework}
 - [[database]]{Database}
