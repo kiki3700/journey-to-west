@@ -35,6 +35,10 @@ const Seo = ({ description, title, children }) => {
         name="google-site-verification"
         content="_KL6lnRiaQhvsiJV-lujk3dvGMIWEOS_kjZGMUjkuh0"
       />
+      <meta
+        name="naver-site-verification"
+        content="450758121a5d44144103927516d30317aff5128d"
+      />
       <meta name="description" content={metaDescription} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={metaDescription} />
