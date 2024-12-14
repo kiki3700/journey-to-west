@@ -20,5 +20,6 @@ exports.onRouteUpdate = () => {
       /\[\[(.+?)\]\]/g,
       '<a href="/wiki/$1">$1</a>'
     )
+    content.classList.add("ready")
   }
 }
