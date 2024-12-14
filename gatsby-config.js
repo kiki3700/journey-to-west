@@ -48,11 +48,10 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-plugin-React-helmet`,
     {
       resolve: "gatsby-plugin-mdx",
       options: {
-        remarkPlugins: [require("remark-math"), require("remark-html-katex")],
+        remarkPlugins: [require("remark-math"), require("gatsby-remark-katex")],
       },
     },
     {
