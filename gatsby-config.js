@@ -7,6 +7,7 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+url = "https://journey-to-west.netlify.app/"
 module.exports = {
   siteMetadata: {
     title: `Journey to west`,
@@ -14,7 +15,7 @@ module.exports = {
       name: `noah`,
     },
     description: `웹로그.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    siteUrl: url,
     social: {
       github: "kiki3700",
     },
@@ -48,11 +49,10 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-plugin-React-helmet`,
     {
       resolve: "gatsby-plugin-mdx",
       options: {
-        remarkPlugins: [require("remark-math"), require("remark-html-katex")],
+        remarkPlugins: [require("remark-math"), require("gatsby-remark-katex")],
       },
     },
     {
@@ -163,6 +163,14 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: url,
+        policy: [{ userAgent: "*", allow: "/" }],
+        sitemap: url + "/sitemap-index.xml",
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Journey to west`,
@@ -176,5 +184,6 @@ module.exports = {
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-sitemap`,
   ],
 }
