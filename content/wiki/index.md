@@ -11,3 +11,4 @@ slug: "index"
 - [[database]]{Database}
 - [[network]]{Network}
 - [[security]]{Security}
+- [[data-structures]]{데이터 구조}
