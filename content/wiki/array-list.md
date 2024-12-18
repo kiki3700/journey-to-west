@@ -60,7 +60,7 @@ slug: "array-list"
   System.out.println("Size: " + customArray.size()); // 출력: 2
   System.out.println("Capacity: " + customArray.capacity()); // 출력: 4
   ```
-  ### 꾸현 예시
+  ### 구현 예시
   ```java
   public class CustomArray<T> {
     private Object[] data; // 제네릭 데이터를 저장할 배열
