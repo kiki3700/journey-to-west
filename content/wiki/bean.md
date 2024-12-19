@@ -1,6 +1,6 @@
 ---
 title: 스프링 빈 등록과 사용
-slug: "spring-bean"
+slug: "bean"
 ---
 
 ## 개요
