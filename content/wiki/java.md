@@ -10,3 +10,4 @@ slug: "java"
 - [[garbage-collection]]{Garbage Collection}
 - [[effective-java]]{Effective Java}
 - [[jvm]]{JVM}
+- [[lamda-stream]]{Lamda and Stream}
