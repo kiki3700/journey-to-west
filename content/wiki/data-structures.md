@@ -4,3 +4,4 @@ slug: 'data-structures'
 ---
 
 - [[array-list]]{ArrayList}
+- [[linked-list]]{Linked List}
