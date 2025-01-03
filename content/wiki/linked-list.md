@@ -2,8 +2,6 @@
 title: Linked List
 slug: 'linked-list'
 ---
-package datastrutures.lists;
-
   CustomLinkedList는 Java의 LinkedList와 유사한 단일 연결 리스트(Singly Linked List)를 구현하는 클래스입니다.
   ### **소개**
   연결 리스트는 노드(Node)들의 연속된 체인으로 구성되며, 각 노드는 데이터와 다음 노드를 가리키는 참조를 포함합니다.
