@@ -7,3 +7,4 @@ slug: "database"
 - [[db-index]]{Index}
 - [[transaction]]{Transaction}
 - [[view]]{View}
+- [[sql]]{SQL}
