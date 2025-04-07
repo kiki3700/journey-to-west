@@ -12,3 +12,4 @@ slug: "index"
 - [[network]]{Network}
 - [[security]]{Security}
 - [[data-structures]]{데이터 구조}
+- [[ai]]{AI}
