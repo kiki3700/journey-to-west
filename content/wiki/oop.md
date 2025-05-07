@@ -4,3 +4,4 @@ slug: "oop"
 ---
 
 - [[solid]]{SOLID}
+- [[sub-typing]]{Sub Typing}
