@@ -5,7 +5,7 @@ slug: "bean"
 
 ## 개요
 
-- `Spring`에서 **Bean**은 `Spring Container`가 관리하는 객체를 말한다.
+- `Spring`에서 **Bean**은 `Spring 컨테이너`가 관리하는 객체를 말한다.
 - 애플리케이션 내에서 객체를 직접 생성하고 관리하는 대신, `Spring`이 이를 관리해주며 의존성 주입을 통해 객체간의 관계를 설정할 수 있다.
 - Bean은 애플리케이션의 비즈니스 로직을 구성하는 `서비스 클래스`, `DAO`, `Util`을 포함할 수 있다.
 
@@ -23,8 +23,8 @@ slug: "bean"
 
 ### 1. 어노테이션 기반 등록
 
-- Bean을 정의 하는 가장 일반적인 방법
-- `@Component`, `@Service`, `@Repository`, `@Controller` 등의 어노테이션을 크래스에 붙여 해당 클래스가 `Spring 컨테이너`에 의해 관리 되는 `Bean`임을 표시한다.
+- Bean을 정의하는 가장 일반적인 방법
+- `@Component`, `@Service`, `@Repository`, `@Controller` 등의 어노테이션을 클래스에 붙여 해당 클래스가 `Spring 컨테이너`에 의해 관리 되는 `Bean`임을 표시한다.
 
 ```java
 import org.springframework.stereotype.Service;
@@ -58,7 +58,7 @@ public class AppConfig {
 
 ### 3. XML 기반 등록
 
-- XML 파일에 Bean을 등록할 수 있지만, 과거의 방식으로 설정 방식이 복잡하다.
+- XML 파일에 Bean을 등록할 수 있지만, 과거의 방식은 설정 방식이 복잡하다.
 
 ```java
 <beans xmlns="http://www.springframework.org/schema/beans">
@@ -70,7 +70,7 @@ public class AppConfig {
 
 ### 의존성 주입 방식
 
-- Spring의 핵심 기능으로 객체간의 의존성을 Spring이 자동으로 관리 해준다.
+- Spring의 핵심 기능으로 객체간의 의존성을 Spring이 자동으로 관리해 줍니다.
 
 ```
 import org.springframework.beans.factory.annotation.Autowired;
