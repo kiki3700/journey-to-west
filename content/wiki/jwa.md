@@ -2,7 +2,7 @@
 title: JWA
 slug: "jwa"
 ---
-RFC 7518은 "JSON Web Algorithms (JWA)"라는 제목을 가진 RFC입니다.
+RFC 7518은 "JSON Web Algorithms (JWA)"라는 제목을 가지는 RFC입니다.
 이 문서는 JSON Web Token (JWT) 및 JSON Web Signature (JWS)와 같은 JSON 기반 보안 토큰에서 사용되는 알고리즘을 정의합니다.
 
 ### 1. **Introduction**
