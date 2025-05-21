@@ -161,7 +161,7 @@ public class NutritionFacts {
 
 ## item 6. 불필요한 개객체 생성을 피하라
 
-라## 대안 1: 점층적 생성자 패턴 (Telescoping Constructor Pattern)
+### 불필요한 객체 생성 방지
 점층적 생성자 패턴은 객체 생성 시 선택적 매개변수의 기본값을 설정하기 위해 생성자 오버로딩을 활용하는 방법이다. 이 접근법은 간단한 구조에서 유용하나, 매개변수가 많아질수록 유지보수성과 가독성이 심각하게 저하된다.
 
 1. **구조적 단순성**: 필수 매개변수만으로도 객체를 생성할 수 있으며, 추가적인 매개변수는 선택적으로 제공한다.
@@ -315,7 +315,7 @@ public class Elvis {
 ### 열거형 타입 방식
 
 ```java
-public enu Elivis {
+public enum Elvis {
     INSTANCE;
 
     public void leaveTheBuilding() {...}
@@ -339,7 +339,7 @@ public class Utils {
     }
 ```
 
-## item 6. 불필요한 개객체 생성을 피하라
+## item 6. 불필요한 객체 생성을 피하라
 
 ### 불필요한 객체 생성 방지
 

@@ -1,6 +1,6 @@
 ---
-title: Lamda and Stream
-slug: "lamda-stream"
+title: Lambda and Stream
+slug: "lambda-stream"
 ---
 
 Java 8부터 추가된 람다(Lambda)와 스트림(Stream)은 자바 프로그래밍을 더 간결하고 함수형 스타일로 작성할 수 있도록 도와주는 강력한 도구입니다. 이 글에서는 람다와 스트림의 기본 개념과 사용법을 소개하고, 이를 활용한 간단한 예제를 통해 실제로 어떻게 사용할 수 있는지 알아보겠습니다.
@@ -137,7 +137,7 @@ Runnable runnable = () -> System.out.println("Hello, World!");
 
 ### 2. **함수형 인터페이스**
 
-람다는 함수형 인터페이스(Functional Interface)와 함께 사용됩니다. 함수형 인터페이스는 단 하나의 추상 메서드를 가지는 인터페이스를 의미하며, 자바에서 람다가 이 인터페이스를 구현합니다.
+람다는 함수형 인터페이스(Functional Interface)와 함께 사용됩니다. 함수형 인터페이스는 단 하나의 추상 메서드를 가지는 인터페이스를 의미하며, 자바에서 람다가 이 인터페이스를 구현합니다.
 
 #### **함수형 인터페이스 정의**
 
@@ -178,7 +178,7 @@ Stream은 Java 8에서 도입된 **데이터 처리 파이프라인**으로, 컬
 
 ```java
 List<Integer> numbers = List.of(1, 2, 3, 4, 5);
-numbers.stream().map(x -> x * x).forEach(System.out::println);(1, 2, 3, 4, 5);
+numbers.stream().map(x -> x * x).forEach(System.out::println);
 Stream<Integer> stream = numbers.stream();
 ```
 

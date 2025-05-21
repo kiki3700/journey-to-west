@@ -31,7 +31,7 @@ slug: "composite-pattern"
 
 ![composite-pattern-implement-uml](../../src/images/composite-pattern-implement.jpg)
 
-- 자식 관련 연산을 인터페이스에서 정의하여 `Composite` 클래스에서 구현한다. 이를 통해 균일한 인터페이스를 제공한다. 구현에 있어서 사용하지 않는 메서드는 예외를 뱉거나 적당한 값을 반환한다.
+- 자식 관련 연산을 인터페이스에서 정의하여 `Composite` 클래스에서 구현한다. 이를 통해 균일한 인터페이스를 제공한다. 구현에 있어서 사용하지 않는 메서드는 예외를 발생시키거나 적절한 기본값을 반환한다.
 - 자식 관련 연산은 `Composite`클래스에 구현한다. 클라이언트는 `Leaf`와 `Composite`객체를 다르게 처리해야한다.
 
 ## 장단점

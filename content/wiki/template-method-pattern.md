@@ -1,6 +1,6 @@
 ---
 title: 템플릿 메서드 패턴
-slug: "tempate-mtehod-pattern"
+slug: "template-method-pattern"
 ---
 
 ## 정의

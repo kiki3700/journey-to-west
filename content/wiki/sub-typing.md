@@ -1,6 +1,6 @@
 ---
 title: Sub Typing
-slub: "sub-typing"
+slug: "sub-typing"
 ---
 ## 개요
 

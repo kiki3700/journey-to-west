@@ -3,14 +3,14 @@ title: 추상 클래스
 slug: "abstract-class"
 ---
 
-## 추상 클래스란스
+## 추상 클래스란
 
 - 추상 클래스는 서로 연관(많은 메서드와 상태값을 공유하는) 클래스들을 확장하여 사용하는 것이 목적이다.
 - 추상 클래스, 추상 메서드는 abstract 지시자를 사용해서 만들 수 있다.
 
 ```java
 public abstract class ExampleAbstractCalss{
-	public abstract void abstractMethod(); // 추상 메서드는 바디가 없다. 상속시 꼭 override하여하한다.
+	public abstract void abstractMethod(); // 추상 메서드는 바디가 없다. 상속시 꼭 override하여야 한다.
 	private boolean isAbstract(){
 		return true;
 	} // 기본 메서드를 만들 수 있다.
@@ -45,9 +45,9 @@ public abstract class ExampleAbstractCalss{
    - 밀접한 관계에 있는 클래스간 코드를 공유해야 하는 경우.
    - 확장함에 따라 공통적으로 사용하는 상태와 메서드들이 많거나, public 이외의 접근 제어자를 사용해야한다.
    - static final 이외의 필드를 사용하여야 한다.
-2. 인터페이스는 큰 연관이 없는 클래스에서 구연하여 특정 외연을 강제할 수 있다.
+2. 인터페이스는 큰 연관이 없는 클래스에서 구현하여 특정 외연을 강제할 수 있다.
    - 다중 상속을 사용하고 싶을때.
-   - 연관이 크지 않은 클래스에서 인터페이스를 구현할꺼 같을때.
+   - 연관이 크지 않은 클래스에서 인터페이스를 구현할 것 같을 때.
    - 특정 데이터 유형의 생동을 명시하고 싶을 경우.
 
 - HashMap class를 보면
