@@ -1,11 +1,5 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
- */
 const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
-const { get } = require("https")
 const blogTemplate = path.resolve("./src/templates/blog_template.js")
 const wikiTemplate = path.resolve("./src/templates/wiki_template.js")
 
@@ -40,7 +34,7 @@ async function createWikiPage(graphql, actions, reporter) {
       wikiResult.errors
     )
     return
-  } // Wiki entries quer
+  }
   const slugMap = wikiResult.data.allMarkdownRemark.nodes.reduce(
     (acc, node) => {
       acc[node.fields.slug] = node
@@ -48,14 +42,13 @@ async function createWikiPage(graphql, actions, reporter) {
     },
     {}
   )
-  pages = wikiResult.data.allMarkdownRemark.nodes
 
   let componentPath = wikiTemplate
   function travelAndCreateWikiPages(node, parent = null, visited = new Set()) {
     if (visited.has(node)) return
     visited.add(node)
-    links = extractLinks(node.internal.content)
-    childrenIds = []
+    const links = extractLinks(node.internal.content)
+    const childrenIds = []
     links.forEach(slug => {
       const childNode = slugMap[slug]
       if (childNode) {
@@ -63,7 +56,7 @@ async function createWikiPage(graphql, actions, reporter) {
         childrenIds.push(childNode.id)
       }
     })
-    parentId = parent ? parent.id : null
+    const parentId = parent ? parent.id : null
     if (node.fields.slug != "/wiki/") {
       createPage({
         path: node.fields.slug,
@@ -103,7 +96,7 @@ async function createBlogPost(graphql, actions, reporter) {
       blogResult.errors
     )
     return
-  } // Wiki entries query
+  }
   const posts = blogResult.data.allMarkdownRemark.nodes
   // Create pages for blog posts and wiki entries based on their paths
   if (posts.length > 0) {
@@ -125,9 +118,6 @@ async function createBlogPost(graphql, actions, reporter) {
   }
 }
 
-/**
- * @type {import('gatsby').GatsbyNode['onCreateNode']}
- */
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
@@ -136,7 +126,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     // 파일의 절대 경로를 가져옴
     const fileNode = getNode(node.parent)
     const filePath = fileNode.absolutePath
-    // 'content/blog' 또는 'content/wiki'에 따라 slug를 조정
     value = adjustSlugForContent(filePath, value)
     createNodeField({
       name: "slug",
@@ -169,18 +158,9 @@ function createWikiNode(node, actions, getNode) {
   })
 }
 
-/**
- * @type {import('gatsby').GatsbyNode['createSchemaCustomization']}
- */
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
 
-  // Explicitly define the siteMetadata {} object
-  // This way those will always be defined even if removed from gatsby-config.js
-
-  // Also explicitly define the Markdown frontmatter
-  // This way the "MarkdownRemark" queries will return `null` even when no
-  // blog posts are stored inside "content/blog" instead of returning an error
   createTypes(`
     type SiteSiteMetadata {
       author: Author
