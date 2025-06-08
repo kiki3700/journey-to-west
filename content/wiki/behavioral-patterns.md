@@ -1,7 +1,8 @@
 ---
 title: 행동 패턴
-slug: 'behavioral-patterns'
+slug: "behavioral-patterns"
 ---
+
 - [[strategy-pattern]]{전략 패턴}
 - [[observer-pattern]]{옵저버 패턴}
 - [[decorator-pattern]]{데코레이터 패턴}

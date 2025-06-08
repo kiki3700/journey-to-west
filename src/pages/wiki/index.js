@@ -6,7 +6,7 @@ const IndexPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   // 최상위 'index' 페이지의 자식 노드들만 렌더링합니다.
   const indexNode = data.allMarkdownRemark.nodes.find(
-    node => node.fields.slug === "/wiki/"
+    node => node.fields.slug === "/wiki/",
   )
   const indexChildSlugs = indexNode.fields.child // 'index' 노드의 자식 슬러그 배열
   const renderList = (nodes, slug) => {
@@ -34,7 +34,7 @@ const IndexPage = ({ data, location }) => {
       <h1>Index</h1>
       <ul>
         {indexChildSlugs.map(slug =>
-          renderList(data.allMarkdownRemark.nodes, slug)
+          renderList(data.allMarkdownRemark.nodes, slug),
         )}
       </ul>
     </Layout>

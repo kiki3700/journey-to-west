@@ -31,7 +31,7 @@ async function createWikiPage(graphql, actions, reporter) {
   if (wikiResult.errors) {
     reporter.panicOnBuild(
       `There was an error loading your wiki page`,
-      wikiResult.errors
+      wikiResult.errors,
     )
     return
   }
@@ -40,7 +40,7 @@ async function createWikiPage(graphql, actions, reporter) {
       acc[node.fields.slug] = node
       return acc
     },
-    {}
+    {},
   )
 
   let componentPath = wikiTemplate
@@ -93,7 +93,7 @@ async function createBlogPost(graphql, actions, reporter) {
   if (blogResult.errors) {
     reporter.panicOnBuild(
       `There was an error loading your blog posts`,
-      blogResult.errors
+      blogResult.errors,
     )
     return
   }

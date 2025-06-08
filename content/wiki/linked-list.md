@@ -1,34 +1,54 @@
 ---
 title: Linked List
-slug: 'linked-list'
+slug: "linked-list"
 ---
-  CustomLinkedList는 Java의 LinkedList와 유사한 단일 연결 리스트(Singly Linked List)를 구현하는 클래스입니다.
-  ### **소개**
-  연결 리스트는 노드(Node)들의 연속된 체인으로 구성되며, 각 노드는 데이터와 다음 노드를 가리키는 참조를 포함합니다.
-  `CustomLinkedList`는 동적 데이터 구조로서 배열과는 달리 요소를 **중간에 삽입/삭제**하는 데 효율적입니다.
-  ### **구현 목표**:
-  이 클래스를 직접 구현하며 다음과 같은 기능을 완성해 보세요.
-  **주요 기능**:
-  1. **add(T value)**:
-  - 리스트의 끝에 새로운 노드를 추가합니다.
-  2. **addFirst(T value)**:
-  - 리스트의 맨 앞에 새로운 노드를 추가합니다.
-  3. **get(int index)**:
-  - 특정 인덱스의 노드에 저장된 데이터를 반환합니다.
-  - 유효하지 않은 인덱스에 접근하면 IndexOutOfBoundsException을 발생시킵니다.
-  4. **remove(int index)**:
-  - 특정 인덱스의 노드를 삭제합니다.
-  - 삭제된 노드의 참조를 연결해 리스트를 유지합니다.
-  5. **size()**:
-  - 현재 리스트에 저장된 노드의 개수를 반환합니다.
-  6. **printList()**:
-  - 리스트에 저장된 요소를 출력합니다. 예: [10 -> 20 -> 30]
-  ### **시간 복잡도**:
-  - `add`: O(1)
-  - `addFirst`: O(1)
-  - `get`: O(n)
-  - `remove`: O(n)
-``` java
+
+CustomLinkedList는 Java의 LinkedList와 유사한 단일 연결 리스트(Singly Linked List)를 구현하는 클래스입니다.
+
+### **소개**
+
+연결 리스트는 노드(Node)들의 연속된 체인으로 구성되며, 각 노드는 데이터와 다음 노드를 가리키는 참조를 포함합니다.
+`CustomLinkedList`는 동적 데이터 구조로서 배열과는 달리 요소를 **중간에 삽입/삭제**하는 데 효율적입니다.
+
+### **구현 목표**:
+
+이 클래스를 직접 구현하며 다음과 같은 기능을 완성해 보세요.
+**주요 기능**:
+
+1. **add(T value)**:
+
+- 리스트의 끝에 새로운 노드를 추가합니다.
+
+2. **addFirst(T value)**:
+
+- 리스트의 맨 앞에 새로운 노드를 추가합니다.
+
+3. **get(int index)**:
+
+- 특정 인덱스의 노드에 저장된 데이터를 반환합니다.
+- 유효하지 않은 인덱스에 접근하면 IndexOutOfBoundsException을 발생시킵니다.
+
+4. **remove(int index)**:
+
+- 특정 인덱스의 노드를 삭제합니다.
+- 삭제된 노드의 참조를 연결해 리스트를 유지합니다.
+
+5. **size()**:
+
+- 현재 리스트에 저장된 노드의 개수를 반환합니다.
+
+6. **printList()**:
+
+- 리스트에 저장된 요소를 출력합니다. 예: [10 -> 20 -> 30]
+
+### **시간 복잡도**:
+
+- `add`: O(1)
+- `addFirst`: O(1)
+- `get`: O(n)
+- `remove`: O(n)
+
+```java
 public class CustomLinkedList<T> {
 
     public static void main(String[] args) {

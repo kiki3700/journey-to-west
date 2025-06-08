@@ -1,6 +1,6 @@
 ---
 title: JVM
-slug: 'jvm'
+slug: "jvm"
 ---
 
 - [[java-execution]]{Java Execution}

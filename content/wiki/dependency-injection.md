@@ -14,12 +14,15 @@ Spring에서는 빈(bean)을 생성할 때 이러한 의존성을 주입하며, 
 ### Dependency Injection의 장점
 
 1. **객체 간 결합도 감소**
+
    - 객체 간 결합도가 낮아져 유지보수성이 향상됩니다.
 
 2. **코드 재사용성 증가**
+
    - 의존성을 외부에서 주입받기 때문에 다양한 환경에서 동일한 객체를 재사용할 수 있습니다.
 
 3. **테스트 용이성 증가**
+
    - 의존성을 모의(mock) 객체로 대체하여 단위 테스트가 쉬워집니다.
 
 4. **의존성 관리 효율화**
@@ -32,10 +35,12 @@ Spring에서는 빈(bean)을 생성할 때 이러한 의존성을 주입하며, 
 #### 1. 생성자 기반 의존성 주입 (Constructor-based Injection)
 
 **특징:**
+
 - 객체 생성 시 필요한 의존성을 생성자를 통해 주입받습니다.
 - 클래스의 불변성을 유지할 수 있어 안정적인 객체 설계에 유리합니다.
 
 **클래스 예시:**
+
 ```java
 public class SimpleMovieLister {
     private final MovieFinder movieFinder;
@@ -47,6 +52,7 @@ public class SimpleMovieLister {
 ```
 
 **어노테이션 기반 주입:**
+
 ```java
 @Configuration
 public class MovieListerConfig {
@@ -66,10 +72,12 @@ public class MovieListerConfig {
 #### 2. Setter 기반 의존성 주입 (Setter-based Injection)
 
 **특징:**
+
 - 객체 생성 후 Setter 메서드를 통해 의존성을 주입받습니다.
 - 기본값 설정이 가능하며, 객체의 재구성 및 재주입이 가능합니다.
 
 **클래스 예시:**
+
 ```java
 public class SimpleMovieLister {
     private MovieFinder movieFinder;
@@ -81,6 +89,7 @@ public class SimpleMovieLister {
 ```
 
 **어노테이션 기반 주입:**
+
 ```java
 @Configuration
 public class MovieListerConfig {
@@ -102,9 +111,11 @@ public class MovieListerConfig {
 #### 3. 팩토리 메서드 기반 의존성 주입 (Factory Method Injection)
 
 **특징:**
+
 - 정적 팩토리 메서드를 호출하여 객체를 생성하고, 필요한 의존성을 주입합니다.
 
 **클래스 예시:**
+
 ```java
 public class SimpleMovieLister {
     private final MovieFinder movieFinder;
@@ -120,6 +131,7 @@ public class SimpleMovieLister {
 ```
 
 **어노테이션 기반 주입:**
+
 ```java
 @Configuration
 public class MovieListerConfig {
@@ -163,6 +175,7 @@ Spring IoC 컨테이너는 이러한 순환 참조를 실행 시 감지하고 **
 Spring은 **컨테이너 로드 시점**에 구성 문제를 감지합니다.
 
 **예:**
+
 - 존재하지 않는 빈에 대한 참조.
 - 순환 의존성 문제.
 
@@ -178,14 +191,13 @@ Spring은 가능한 늦게 속성을 설정하고 의존성을 해결합니다(�
 
 ### 생성자 vs 세터 기반 DI
 
-| 방식               | 장점                            | 단점                   |
-| ---------------- | ----------------------------- | -------------------- |
-| **생성자 기반 DI**    | - 클래스 불변성 유지 가능- 필수 의존성 보장    | - 의존성이 많아질 경우 가독성 저하 |
-| **Setter 기반 DI** | - 선택적 의존성 처리- 객체 재구성 및 재주입 가능 | - 필수 의존성 보장이 어려움     |
+| 방식               | 장점                                             | 단점                               |
+| ------------------ | ------------------------------------------------ | ---------------------------------- |
+| **생성자 기반 DI** | - 클래스 불변성 유지 가능- 필수 의존성 보장      | - 의존성이 많아질 경우 가독성 저하 |
+| **Setter 기반 DI** | - 선택적 의존성 처리- 객체 재구성 및 재주입 가능 | - 필수 의존성 보장이 어려움        |
 
 ---
 
 ### 결론
 
 Dependency Injection은 객체 간 결합도를 낮추고, 코드의 재사용성과 테스트 용이성을 높이는 데 유용한 설계 방식입니다. 상황에 따라 적절한 DI 방식을 선택하여 유연하고 확장 가능한 애플리케이션을 설계할 수 있습니다.
-

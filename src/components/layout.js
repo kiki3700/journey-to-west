@@ -7,11 +7,14 @@ const Layout = ({ location, title, children }) => {
   const isRootPath = location.pathname === rootPath
   const header = (
     <>
-    <meta name="google-site-verification" content="_KL6lnRiaQhvsiJV-lujk3dvGMIWEOS_kjZGMUjkuh0" />
-    <Link className="header-link-home" to="/">
-      {title}
-    </Link>
-  </>
+      <meta
+        name="google-site-verification"
+        content="_KL6lnRiaQhvsiJV-lujk3dvGMIWEOS_kjZGMUjkuh0"
+      />
+      <Link className="header-link-home" to="/">
+        {title}
+      </Link>
+    </>
   )
 
   return (

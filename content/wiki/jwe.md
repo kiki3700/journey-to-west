@@ -39,19 +39,19 @@ eyJhbGciOiAiUlNBLU9BRVAiLCAiZW5jIjogIkEyNTZHQ00ifQ
 
 #### 2\. Encrypted Key
 
-* RSA-OAEP 알고리즘을 사용하여 대칭 키를 암호화한 후, Base64Url로 인코딩한 값입니다.
+- RSA-OAEP 알고리즘을 사용하여 대칭 키를 암호화한 후, Base64Url로 인코딩한 값입니다.
 
 #### 3\. Initialization Vector \(IV\)
 
-* AES-GCM 암호화에서 사용되는 초기화 벡터를 Base64Url로 인코딩한 값입니다.
+- AES-GCM 암호화에서 사용되는 초기화 벡터를 Base64Url로 인코딩한 값입니다.
 
 #### 4\. Ciphertext
 
-* AES-GCM 알고리즘을 사용하여 실제 데이터를 암호화한 후 Base64Url로 인코딩한 값입니다.
+- AES-GCM 알고리즘을 사용하여 실제 데이터를 암호화한 후 Base64Url로 인코딩한 값입니다.
 
 #### 5\. Authentication Tag
 
-* 암호화된 데이터의 무결성을 보장하기 위해 생성된 태그입니다.
+- 암호화된 데이터의 무결성을 보장하기 위해 생성된 태그입니다.
 
 #### 예제
 
