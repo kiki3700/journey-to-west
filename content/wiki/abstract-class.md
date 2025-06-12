@@ -3,14 +3,14 @@ title: 추상 클래스
 slug: "abstract-class"
 ---
 
-## 추상 클래스란스
+## 추상 클래스란
 
 - 추상 클래스는 서로 연관(많은 메서드와 상태값을 공유하는) 클래스들을 확장하여 사용하는 것이 목적이다.
 - 추상 클래스, 추상 메서드는 abstract 지시자를 사용해서 만들 수 있다.
 
 ```java
-public abstract class ExampleAbstractCalss{
-	public abstract void abstractMethod(); // 추상 메서드는 바디가 없다. 상속시 꼭 override하여하한다.
+public abstract class ExampleAbstractClass{
+	public abstract void abstractMethod(); // 추상 메서드는 바디가 없다. 상속시 꼭 override해야 한다.
 	private boolean isAbstract(){
 		return true;
 	} // 기본 메서드를 만들 수 있다.
@@ -35,9 +35,9 @@ public abstract class ExampleAbstractCalss{
 - 아래는 기능적인 차이점이다.
   | 추상클래스 | 인터페이스 |
   | --- | ------ |
-  | extend를 사용 상속 | implement 랄 사용 |
-  | public 이외의 접근자를 사용할 수 있다. | pulbic 접근자만 사용하여야한다. |
-  | 필드를 초기화 할수잏다. | final static 필드만 사용할 수 있다. |
+  | extends 를 사용 상속 | implements 사용 |
+  | public 이외의 접근자를 사용할 수 있다. | public 접근자만 사용하여야한다. |
+  | 필드를 초기화 할 수 있다. | final static 필드만 사용할 수 있다. |
   | 단일 상속 가능 | 다중 상속 가능 |
 - 구현시 추상 클래스, 인터페이스를 선택할 때 고려해야할 사항이다.
 
@@ -45,11 +45,11 @@ public abstract class ExampleAbstractCalss{
    - 밀접한 관계에 있는 클래스간 코드를 공유해야 하는 경우.
    - 확장함에 따라 공통적으로 사용하는 상태와 메서드들이 많거나, public 이외의 접근 제어자를 사용해야한다.
    - static final 이외의 필드를 사용하여야 한다.
-2. 인터페이스는 큰 연관이 없는 클래스에서 구연하여 특정 외연을 강제할 수 있다.
+2. 인터페이스는 큰 연관이 없는 클래스에서 구현하여 특정 외연을 강제할 수 있다.
    - 다중 상속을 사용하고 싶을때.
    - 연관이 크지 않은 클래스에서 인터페이스를 구현할꺼 같을때.
-   - 특정 데이터 유형의 생동을 명시하고 싶을 경우.
+   - 특정 데이터 유형의 행동을 명시하고 싶을 경우.
 
 - HashMap class를 보면
-  - AbstracctMap 추상클래스를 확장하여, put, get, isEmpty 등 Map으로서의 기능을 확장하여 사용하고있고
-  - Clonable, Serialzable 인터페이스를 구현하고 있어, 다형성을 이용해 복제, 직렬화 기능을 사용할 수 있다.
+  - AbstractMap 추상클래스를 확장하여, put, get, isEmpty 등 Map으로서의 기능을 확장하여 사용하고있고
+  - Clonable, Serializable 인터페이스를 구현하고 있어, 다형성을 이용해 복제, 직렬화 기능을 사용할 수 있다.

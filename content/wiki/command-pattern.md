@@ -12,11 +12,11 @@ slug: "command-pattern"
 
 [command-pattern](../src/images/command-pattern.png)
 
-- Invoker: 클라이언트로 명령을 성정 받고 이를 실행한다
-- Command: 특정 행동과 리시버를 연결해준다. 인보케에서 exceute를 호출하면 커맨드는 receiver를 호출한다.
+- Invoker: 클라이언트로 명령을 설정 받고 이를 실행한다
+- Command: 특정 행동과 리시버를 연결해준다. 인보케에서 execute를 호출하면 커맨드는 receiver를 호출한다.
 - receiver: 실제로 작업을 수행하는 클래스
 
 ## 특징
 
-- Invoker와 Receiver 간의 읜존성을 줄여서 시스템의 유연성을 높일 수 있다.
+- Invoker와 Receiver 간의 의존성을 줄여서 시스템의 유연성을 높일 수 있다.
 - 커맨드를 캡슐화 함으로써 명령 취소, 큐에 저장 등의 기능을 사용할 수 있다.
