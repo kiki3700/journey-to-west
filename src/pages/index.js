@@ -7,7 +7,7 @@ import Seo from "../components/seo"
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
-  // 선택된 카테고리나 태그로 게시물 필터링
+
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
