@@ -1,7 +1,8 @@
 ---
 title: Object Detection Model Performance Indoex
-slug:'object-detection-model-performance-index'
+slug: "object-detection-model-performance-index"
 ---
+
 ## 요약
 
 모델 성능 지표는 크게 **정확도(Precision/Recall/F1)**, **위치 정밀도(IoU/mAP)**, **학습 상태(Loss)** 세 가지 관점으로 나뉩니다. 엣지 디바이스용 모델이라면 이 지표들이 높은 수치에서 **안정적으로 유지(수렴)**되는지가 가장 중요합니다.

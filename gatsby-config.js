@@ -49,10 +49,15 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    {
-      resolve: "gatsby-plugin-mdx",
+  {
+    resolve: "gatsby-plugin-mdx",
       options: {
-        remarkPlugins: [require("remark-math"), require("gatsby-remark-katex")],
+        mdxOptions: {
+          remarkPlugins: [
+            require("remark-math"),
+            require("gatsby-remark-katex")
+          ],
+        },
       },
     },
     {
