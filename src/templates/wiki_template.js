@@ -2,7 +2,6 @@ import React from "react"
 import "katex/dist/katex.css"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
-import Toc from "../components/toc"
 
 const WikiPageTemplate = ({ data, location }) => {
   const markdownRemark = data.markdownRemark
